@@ -14,6 +14,11 @@ This contains both the frontend and backend components for a web application des
 - Total Weight per Category
 - Weighing Process Starting Date
 
+## UI
+
+![canix-01](https://github.com/sam7695/canix-test-project/assets/133997107/0930ed88-e9e5-4bc6-8a5a-da0f34b4ebf9)
+![canix-02](https://github.com/sam7695/canix-test-project/assets/133997107/3ca4aecf-e09e-4dcc-aaeb-d344a6e6f650)
+
 ## Built With
 
 - **Frontend**
@@ -36,8 +41,8 @@ Docker and Docker Compose must be installed on the system to run the application
 1. **Clone the Repository**:
 
     ```bash
-    git clone <Repo>
-    cd canix-project
+    git clone https://github.com/sam7695/canix-test-project.git
+    cd canix-test-project
     ```
 
 2. **Environment Setup**:
