@@ -1,0 +1,10 @@
+canix_frontend/node_modules
+canix_frontend/.env
+
+/canix_api/storage/
+/canix_api/log/
+/canix_api/tmp/
+/canix_api/**/*.keep
+/canix_api/**/*.DS_Store
+
+/canix_api/config/master.key

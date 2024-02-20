@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  canix_db:
+    image: postgres:latest
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: canixdb
+      POSTGRES_USER: canix
+      POSTGRES_PASSWORD: Qwerty123!
+    container_name: canix_db
+
+  canix_api:
+    build:
+      context: ./canix_api
+      dockerfile: Dockerfile
+    volumes:
+      - ./canix_api:/app
+    ports:
+      - "3001:3001"
+    environment:
+      DB_HOST: canix_db
+      DB_NAME: canixdb
+      DB_USERNAME: canix
+      DB_PASSWORD: Qwerty123!
+    depends_on:
+      - canix_db
+    container_name: canix_api
+
+  canix_frontend:
+    build:
+      context: ./canix_frontend
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_API_BASE_URL: ${REACT_APP_API_BASE_URL}
+    volumes:
+      - ./canix_frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./canix_frontend/.env
+    depends_on:
+      - canix_api
+    container_name: canix_frontend
+
+volumes:
+  postgres_data:
